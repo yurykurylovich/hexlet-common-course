@@ -1,3 +1,4 @@
+// task
 /*
   Реализуйте и экспортируйте по умолчанию функцию swap,
   которая меняет местами два элемента относительно переданного индекса.
@@ -15,6 +16,8 @@
   console.log(result); // => ['john', 'smith', 'karl']
 */
 
+
+// solution
 const swap = (arr, index) => {
   const startIndex = index - 1;
   const endIndex = index + 1;
@@ -27,12 +30,12 @@ const swap = (arr, index) => {
   return arr;
 }
 
+
 // testing
 const names1 = ['john', 'smith', 'karl'];
 const names2 = ['john', 'smith', 'karl'];
 const names3 = ['john', 'smith', 'karl'];
 const names4 = ['john', 'smith', 'karl', 'paul'];
-
 
 const result1 = swap(names1, 1);
 console.log(result1); // => ['karl', 'smith', 'john']
