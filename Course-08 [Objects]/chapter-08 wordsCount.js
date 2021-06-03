@@ -13,7 +13,6 @@ const wordsCount = (str) => {
   }, {})
 }
 
-
 // test
 const text = "one two three two ONE one wow";
 console.log(wordsCount(text));
