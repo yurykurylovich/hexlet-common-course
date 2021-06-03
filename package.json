@@ -1,0 +1,22 @@
+{
+  "name": "hexlet-common-course",
+  "version": "1.0.0",
+  "description": "Learning tasks for Hexlet Frontend and Node.js development courses.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yurykurylovich/hexlet-common-course.git"
+  },
+  "author": "yurykurylovich@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yurykurylovich/hexlet-common-course/issues"
+  },
+  "homepage": "https://github.com/yurykurylovich/hexlet-common-course#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
