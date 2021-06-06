@@ -5,8 +5,12 @@ The sex of a friend you can identify by 'gender' key of users.
 
 // solution
 const getGirlFriends = (users) => {
-  let friends = users.map((user) => user.friends).flat();
-  return friends.filter(friend => friend.gender === 'female')
+  // let friends = users.map((user) => user.friends).flat();
+  // return friends.filter(friend => friend.gender === 'female')
+  return users
+    .map(user => user.friends)
+    .flat()
+    .filter(friend => friend.gender === 'female')
 }
 // test
 const users = [
