@@ -1,7 +1,7 @@
 {
   "name": "hexlet-common-course",
   "version": "1.0.0",
-  "description": "Learning tasks for Hexlet Frontend and Node.js development courses.",
+  "description": "Learning paths for Hexlet Frontend and Node.js development courses.",
   "main": "index.js",
   "scripts": {
     "test": "jest"
