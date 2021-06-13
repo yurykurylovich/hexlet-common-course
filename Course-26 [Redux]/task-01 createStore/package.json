@@ -1,0 +1,11 @@
+{
+  "name": "task-01-createstore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "license": "ISC",
+  "author": ""
+}
