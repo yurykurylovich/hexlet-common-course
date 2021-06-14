@@ -62,6 +62,57 @@ const mapStateToProps = (state) => {
 
 const AppClass = (props) => {
 
+  const handleAddTask = (e) => {
+    e.preventDefault();
+    const { dispatch, text } = props;
+    dispatch(addTask({ task: text }));
+  }
+
+  const handleRemoveTask = (id) => (e) => {
+    e.preventDefault();
+    const { dispatch, tasks } = props;
+    dispatch(removeTask({ id: id }));
+  }
+
+  const handleInput = (e) => {
+    e.preventDefault();
+    const { dispatch, text } = props;
+    dispatch(updateTaskText({ text: e.target.value }));
+  };
+
+  const { tasks, text } = props;
+  return (
+    <>
+      <div className="col-5">
+        <form action="" className="form-inline" onSubmit={handleAddTask}>
+          <div className="form-group mx-sm-3">
+            <input type="text" required value={text} onChange={handleInput} />
+          </div>
+          <button type="submit" className="btn btn-primary btn-sm">
+            Add
+          </button>
+        </form>
+      </div>
+      {tasks.length ? (
+        <div className="mt-3">
+          <ul className="list-group">
+            {tasks.map((task) => (
+              <li key={task.id} id={task.id} className="list-group-item d-flex">
+                <span className="mr-auto">{task.task}</span>
+                <button
+                  type="button"
+                  className="close"
+                  onClick={handleRemoveTask(task.id)}
+                >
+                  <span>&times;</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+    </>
+  )
 }
 
 const App = connect(mapStateToProps)(AppClass);
