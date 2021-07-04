@@ -1,14 +1,14 @@
 const fs = require('fs')
 
 const move = (previousPath, nextPath, cb) => {
-  fs.readFile(previousPath, (err, data1) => {
-    if (err) {
-      cb(err)
+  fs.readFile(previousPath, (err1, data1) => {
+    if (err1) {
+      cb(err1)
       return;
     }
-    fs.writeFile(nextPath, data1, (err) => {
-      if (err) {
-        cb(err)
+    fs.writeFile(nextPath, data1, (err2) => {
+      if (err2) {
+        cb(err2)
         return;
       }
       fs.unlink(previousPath, (err) => {
