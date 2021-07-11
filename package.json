@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Learning paths for Hexlet Frontend and Node.js development courses.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "jest"
   },
