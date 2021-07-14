@@ -23,4 +23,5 @@ class Time {
 const time = new Time(13, 45)
 console.log(time.toString())
 const anotherTime = Time.fromString('11:33')
+// автоматически вызывается метод toString()
 console.log(`Test time is ${anotherTime}`)
