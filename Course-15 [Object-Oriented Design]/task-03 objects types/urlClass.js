@@ -8,8 +8,6 @@ Using node.js url library write own Url class that contains:
 --- equals(url) - takes another Url class object and returns if they are equal with the current Url.
  */
 
-// const url = require('url');
-
 class Url {
   constructor(http) {
     this.data = new URL(http)
