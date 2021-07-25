@@ -4,6 +4,8 @@ password со значением secret на урл /session/new.
 Используйте глагол post и тип application/x-www-form-urlencoded;
 Запишите ваш HTTP-запрос в файл solution;
 
+
+// SOLUTION
 telnet localhost:8080
 POST /session/new HTTP/1.1
 Host: hexlet.local
