@@ -15,7 +15,7 @@ When the input is submitted, the form should be deleted and the word remain:
 If nothing is inputed, return the default value (name and email) in italic as it was.
 */
 
-// SHOWCASE ON CODEPEN -
+// SHOWCASE ON CODEPEN - https://codepen.io/yury-kurylovich/pen/oNWyjXN
 
 const render = (div, state) => {
   let type = div.dataset.editableTarget;
