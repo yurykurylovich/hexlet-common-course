@@ -34,7 +34,7 @@ const errorMessages = {
   },
 }
 
-// SOLUTION BEGINNING
+// SOLUTION
 const run = (() => {
   const form = document.querySelector("form");
   const button = document.querySelector(".btn");
