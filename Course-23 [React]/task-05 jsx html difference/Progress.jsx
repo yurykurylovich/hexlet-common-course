@@ -21,7 +21,7 @@ class Progress extends React.Component {
           aria-valuemax="100"
           aria-label="progressbar"
           style={divStyle}
-        ></div>
+        />
       </div>
     );
   }
