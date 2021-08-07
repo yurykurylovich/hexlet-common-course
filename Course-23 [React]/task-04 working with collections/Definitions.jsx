@@ -19,10 +19,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 class Definitions extends React.Component {
-
   render() {
-    const definitions = this.props;
-
+    const { data } = this.props;
     return Object.keys(data).length ? (
       <dl>
         {data.map(item => (
