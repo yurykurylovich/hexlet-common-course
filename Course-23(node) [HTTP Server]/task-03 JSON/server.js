@@ -1,47 +1,81 @@
+// @ts-check
+
 import http from 'http';
 
-export default (usersById) => http.createServer((request, response) => {
-  request.on('error', (err) => {
-    console.error(err.stack);
-  });
-  request.on('end', () => {
-    if (request.url === '/') {
+const getParams = (address, host) => {
+  const url = new URL(address, `http://${host}`);
+  return Object.fromEntries(url.searchParams);
+};
+
+const router = {
+  GET: {
+    '/users/(\\w+).json': (req, res, matches, usersById) => {
+      // BEGIN (write your solution here)
+      const index = matches[1];
+      const user = usersById[index];
+
+      if (user) {
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify({ data: user }))
+      } else {
+        res.statusCode = 404;
+        res.end();
+      }
+      // END
+    },
+    '/': (req, res, matches, usersById) => {
       const messages = [
         'Welcome to The Phonebook',
         `Records count: ${Object.keys(usersById).length}`,
       ];
-      response.end(messages.join('\n'));
-    } else if (request.url.startsWith('/search.json')) {
-      response.setHeader('Content-Type', 'application/json');
+      res.end(messages.join('\n'));
+    },
 
-      const url = new URL(request.url, `http://${request.headers.host}`);
-      const q = url.searchParams.get('q');
-      const normalizedSearch = q ? q.trim().toLowerCase() : '';
+    '/search.json': (req, res, matches, usersById) => {
+      res.setHeader('Content-Type', 'application/json');
 
-      const result = Object.values(usersById)
-        .filter((user) => user.name.toLowerCase().includes(normalizedSearch));
+      const { q = '' } = getParams(req.url, req.headers.host);
+      const normalizedSearch = q.trim().toLowerCase();
+      const ids = Object.keys(usersById);
 
-      response.end(JSON.stringify(result));
-    } else if (request.url.startsWith('/users.json')) {
-      // BEGIN (write your solution here)
-      response.setHeader("Content-Type", "application/json");
-      const url = new URL(request.url, `http://${request.headers.host}`);
-      const page = parseInt(url.searchParams.get('page')) || 1;
-      const perPage = parseInt(url.searchParams.get('perPage')) || 10;
-      const data = page !== 1
-        ? Object.values(usersById).slice(page * perPage - perPage, page * perPage)
-        : Object.values(usersById).slice(0, perPage)
-      const result = {
-        meta: {
-          page,
-          perPage,
-          totalPages: Math.ceil(Object.keys(usersById).length/perPage)
-        },
-        data
-      }
-      response.end(JSON.stringify(result))
-      // END
+      const usersSubset = ids
+        .filter((id) => usersById[id].name.toLowerCase().includes(normalizedSearch))
+        .map((id) => usersById[id]);
+      res.end(JSON.stringify({ data: usersSubset }));
+    },
+
+    '/users.json': (req, res, matches, usersById) => {
+      res.setHeader('Content-Type', 'application/json');
+
+      const { page = 1, perPage = 10 } = getParams(req.url, req.headers.host);
+      const ids = Object.keys(usersById);
+
+      const usersSubset = ids.slice((page * perPage) - perPage, page * perPage)
+        .map((id) => usersById[id]);
+      const totalPages = Math.ceil((ids.length) / perPage);
+      res.end(JSON.stringify({ meta: { page, perPage, totalPages }, data: usersSubset }));
+    },
+  },
+};
+
+export default (users) => http.createServer((request, response) => {
+  const { pathname } = new URL(request.url, `http://${request.headers.host}`);
+  const routes = router[request.method];
+
+  const result = pathname && Object.keys(routes).find((str) => {
+    const regexp = new RegExp(`^${str}$`);
+    const matches = pathname.match(regexp);
+
+    if (!matches) {
+      return false;
     }
+
+    routes[str](request, response, matches, users);
+    return true;
   });
-  request.resume();
+
+  if (!result) {
+    response.writeHead(404);
+    response.end();
+  }
 });
