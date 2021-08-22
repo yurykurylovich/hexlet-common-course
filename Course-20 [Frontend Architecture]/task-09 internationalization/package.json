@@ -1,0 +1,14 @@
+{
+  "type": "module",
+  "scripts": {
+    "test": "jest --colors"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "dependencies": {
+    "core-js": "*",
+    "on-change": "*",
+    "i18next": "*"
+  }
+}

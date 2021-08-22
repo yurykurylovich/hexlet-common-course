@@ -1,0 +1,23 @@
+/* В этом упражнении вам предостоит запрограммировать мультиязычный счётчик нажатий,
+состоящий из переключателя языка, кнопки с числом кликов и кнопки сброса счётчика.
+Начальное состояние:
+<div class="btn-group" role="group">
+    <button type="button" class="btn btn-primary">English</button>
+    <button type="button" class="btn btn-outline-primary">Русский</button>
+</div>
+<button type="button" class="btn btn-info">0 clicks</button>
+<button type="button" class="btn btn-warning">Reset</button>
+После двух нажатий и переключения на русский язык:
+<div class="btn-group" role="group">
+    <button type="button" class="btn btn-outline-primary">English</button>
+    <button type="button" class="btn btn-primary">Русский</button>
+</div>
+<button type="button" class="btn btn-info">2 клика</button>
+<button type="button" class="btn btn-warning">Сбросить</button>
+src/application.js
+Экспортируйте функцию по умолчанию, которая реализует всю необходимую логику.
+Тексты должны подставляться через библиотеку i18next.
+src/locales/en.js
+Реализуйте тексты для англоязычной версии приложения.
+src/locales/ru.js
+Реализуйте тексты для русскоязычной версии приложения. */
