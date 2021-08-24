@@ -20,6 +20,7 @@
   "dependencies": {
     "async": "^3.2.0",
     "axios": "^0.21.1",
+    "classnames": "^2.3.1",
     "escape-goat": "^4.0.0",
     "i18n": "^0.13.3",
     "express": "^4.17.1",
