@@ -1,0 +1,16 @@
+{
+  "name": "hexlet-exercise",
+  "version": "0.1.0",
+  "type": "module",
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "express": "*",
+    "supertest": "*",
+    "jest-supertest-matchers": "*"
+  },
+  "scripts": {
+    "test": "npx -n '--experimental-vm-modules --no-warnings' jest --colors"
+  }
+}

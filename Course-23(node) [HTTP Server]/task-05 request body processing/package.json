@@ -1,0 +1,13 @@
+{
+  "type": "module",
+  "dependencies": {
+    "axios": "*",
+    "lodash": "*"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "scripts": {
+    "test": "npx -n --experimental-vm-modules -n --no-warnings jest --colors --detectOpenHandles --forceExit"
+  }
+}
