@@ -1,9 +1,9 @@
-html.js
+DatabaseConfigLoader.js
 Реализуйте и экспортируйте по умолчанию функцию, которая принимает на вход тег и
 возвращает его текстовое представление.
 
 Примеры
-import stringify from './html.js';
+import stringify from './DatabaseConfigLoader.js';
 
 const hrTag = {
   name: 'hr',

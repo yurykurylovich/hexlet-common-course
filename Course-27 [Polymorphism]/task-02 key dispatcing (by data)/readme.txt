@@ -1,11 +1,11 @@
-html.js
+DatabaseConfigLoader.js
 Реализуйте и экспортируйте по умолчанию функцию, которая принимает на вход список тегов, находит среди них теги
 a, link и img, а затем извлекает ссылки и возвращает список ссылок. Теги подаются на вход в виде массива,
 где каждый элемент это тег. Тег имеет следующую структуру:
 
 name — имя тега.
 href или src — атрибуты. Атрибуты зависят от тега: тег img имеет атрибут src, тег a — href, link — href.
-import getLinks from './html.js';
+import getLinks from './DatabaseConfigLoader.js';
 
 const tags = [
   { name: 'img', src: 'hexlet.io/assets/logo.png' },
