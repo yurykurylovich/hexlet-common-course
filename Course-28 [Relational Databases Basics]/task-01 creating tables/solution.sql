@@ -1,7 +1,7 @@
 CREATE TABLE courses (
-     name		varchar(255),
-     body		text,
-     created_at	timestamp
+    name		varchar(255),
+    body		text,
+    created_at	timestamp
 );
 
 CREATE TABLE users (
